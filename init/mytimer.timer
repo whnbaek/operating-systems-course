@@ -1,0 +1,12 @@
+[Unit]
+Description=Run a task every 2 minutes
+Documentation=man:systemd.timer(5)
+
+[Timer]
+Unit=timer.service
+OnCalendar=*:0/2
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+

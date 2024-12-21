@@ -1,0 +1,12 @@
+[Unit]
+Description=My Custom Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/arslan/projects/operating-systems-course/init/rooter.py
+Restart=on-failure
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

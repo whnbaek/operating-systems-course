@@ -1,0 +1,7 @@
+[Unit]
+Description=Run Daily Backup
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /home/arslan/projects/operating-systems-course/init/users.py
+

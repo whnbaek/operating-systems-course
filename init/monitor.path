@@ -1,0 +1,10 @@
+[Unit]
+Description=Monitor /tmp/mon for changes
+
+[Path]
+Unit=monitor_s.service
+DirectoryNotEmpty=/tmp/mon
+MakeDirectory=yes
+
+[Install]
+WantedBy=multi-user.target

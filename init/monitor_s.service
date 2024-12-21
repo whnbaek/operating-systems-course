@@ -1,0 +1,6 @@
+[Unit]
+Description=Perform action when /tmp/mon changes
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -c 'echo "Directory /tmp/mon has changes!"'
