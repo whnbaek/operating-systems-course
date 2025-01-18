@@ -1,0 +1,8 @@
+<node>
+  <interface name="com.example.TimeService">
+    <method name="GetTimeOfDay">
+      <arg type="s" name="current_time" direction="out"/>
+    </method>
+  </interface>
+</node>
+
