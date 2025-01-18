@@ -20,6 +20,22 @@ handle_get_time_of_day(TimeServiceComExampleTimeService *object,
     return TRUE;
 }
 
+static void
+on_name_acquired(GDBusConnection *connection, const gchar *name, gpointer user_data)
+{
+    g_print("Acquired name: %s\n", name);
+}
+
+static void
+on_name_lost(GDBusConnection *connection, const gchar *name, gpointer user_data)
+{
+    if (connection == NULL) {
+        g_printerr("Failed to connect to the bus\n");
+    } else {
+        g_printerr("Failed to acquire the name: %s\n", name);
+    }
+}
+
 int main(int argc, char *argv[])
 {
     GMainLoop *loop;
@@ -52,6 +68,24 @@ int main(int argc, char *argv[])
                                           &error)) {
         g_printerr("Error exporting object: %s\n", error->message);
         g_clear_error(&error);
+        return 1;
+    }
+
+	guint owner_id;
+	// Request the name explicitly
+	owner_id = g_bus_own_name(
+        G_BUS_TYPE_SESSION,
+        "com.example.TimeService",
+        G_BUS_NAME_OWNER_FLAGS_NONE,
+        NULL,                   // Bus acquired callback (optional)
+        on_name_acquired,       // Name acquired callback
+        on_name_lost,           // Name lost callback
+        NULL,                   // User data
+        NULL                    // User data free function
+    );
+
+    if (owner_id == 0) {
+        g_printerr("Failed to acquire the name com.example.TimeService\n");
         return 1;
     }
 
