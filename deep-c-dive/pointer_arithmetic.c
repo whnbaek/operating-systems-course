@@ -26,7 +26,7 @@ int main() {
     // Calculate the distance between two pointers
     int *startPtr = &numbers[0];
     int *endPtr = &numbers[4];
-    printf("\nDistance between startPtr and endPtr: %ld elements\n", endPtr - startPtr);
+    printf("\nDistance between startPtr and endPtr: %ld elements\n", (char *)endPtr - startPtr);
 
     return 0;
 }

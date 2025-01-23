@@ -25,8 +25,11 @@ int main() {
     printf("Calling add using function pointer:\n");
     printf("Result: %d\n", funcPtr(10, 5));
 
+
     // Assign the subtract function to the pointer
     funcPtr = &subtract;
+
+	printf("Read Func Pointer %x", *( (char *)funcPtr) );
 
     // Call the subtract function using the function pointer
     printf("\nCalling subtract using function pointer:\n");

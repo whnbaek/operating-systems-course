@@ -8,6 +8,7 @@ int main() {
     printf("Value of num: %d\n", num);
     printf("Value of num using pointer: %d\n", *ptr);
 
+
     // Print the address of 'num' using both '&num' and the pointer
     printf("Address of num: %p\n", (void *)&num);
     printf("Address of num using pointer: %p\n", (void *)ptr);
@@ -26,6 +27,8 @@ int main() {
     // Null pointer demonstration
     ptr = NULL;            // Set pointer to NULL
     printf("\nPointer set to NULL: %p\n", (void *)ptr);
+
+	*ptr = 0x01;
 
     return 0;
 }

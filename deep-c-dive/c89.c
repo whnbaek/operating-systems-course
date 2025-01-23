@@ -2,7 +2,7 @@
 
 
 //Function will not return 
-_Noreturn fun( )
+_Noreturn void fun( )
 {
     printf("\nI TOO WILL BE PRINTED :) \n\n");
     while(1);

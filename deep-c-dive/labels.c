@@ -21,10 +21,11 @@ int main() {
 
 label1:
     printf("You chose label 1!\n");
-    return 0;
+	return 0;
 
 label2:
     printf("You chose label 2!\n");
+	goto label1;
     return 0;
 
 label3:
