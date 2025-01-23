@@ -66,7 +66,7 @@ int main() {
 
 
 	//Set n to zero, we don't really need it anymore
-	unsigned long long * p= &n;
+	unsigned long long * p= (unsigned long long *)&n;
 	p[1]=0;
 
     // Print the tree in in-order traversal
