@@ -39,22 +39,29 @@ int main() {
 
     // Prepare the subscription message
     memset(buffer, 0, sizeof(buffer));
+
+	// Packet has the Netlink header in the begining
     nlh = (struct nlmsghdr *)buffer;
+
+	// Connector Message 
     cn_msg = (struct cn_msg *)NLMSG_DATA(nlh);
+
+	// Populate Netlink Header
     nlh->nlmsg_len = NLMSG_LENGTH(sizeof(*cn_msg) + sizeof(int));
     nlh->nlmsg_type = NLMSG_DONE;
     nlh->nlmsg_flags = 0;
     nlh->nlmsg_seq = 0;
     nlh->nlmsg_pid = getpid();
 
-    cn_msg->id.idx = CN_IDX_PROC;
-    cn_msg->id.val = CN_VAL_PROC;
+	//Populate Connector Message
+    cn_msg->id.idx = CN_IDX_PROC; //CN_IDX_PROC indicates that the message is related to process events.
+    cn_msg->id.val = CN_VAL_PROC; // Type of  message
     cn_msg->seq = 0;
     cn_msg->ack = 0;
-    cn_msg->len = sizeof(int);
+    cn_msg->len = sizeof(int); // Only int sized message
 
     // Enable process events
-    *((int *)cn_msg->data) = PROC_CN_MCAST_LISTEN;
+    *((int *)cn_msg->data) = PROC_CN_MCAST_LISTEN; // We're asking to listen to multicast events
 
     if (send(sock_fd, nlh, nlh->nlmsg_len, 0) < 0) {
         perror("Send failed");
