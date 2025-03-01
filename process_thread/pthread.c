@@ -5,7 +5,9 @@
 // Function to be executed by the new thread
 void* my_thread_function(void* arg) {
     int* num = (int*)arg;  // Cast the argument to the correct type
+	int num2= arg;
     printf("Hello from the thread! The number is: %d\n", *num);
+
     return NULL;
 }
 
@@ -22,6 +24,7 @@ int main() {
 
     // Wait for the thread to finish execution
     ret = pthread_join(thread, NULL);
+
     if (ret != 0) {
         perror("pthread_join");
         exit(1);

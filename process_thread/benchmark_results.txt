@@ -1,0 +1,16 @@
+Benchmarking no sharing memory clone():
+ 0.395613 seconds
+Benchmarking shared memory clone():
+ 0.021325 seconds
+Benchmarking shared files and memory clone():
+ 0.021313 seconds
+Benchmarking shared files, filessytem info (like CWD), and memory clone():
+ 0.019603 seconds
+Benchmarking shared signal handlers, files, filessytem info (like CWD), and memory clone():
+ 0.020712 seconds
+Benchmarking shared parent, signal handlers, files, filessytem info (like CWD), and memory clone():
+ 0.021216 seconds
+Benchmarking shared IO, parent, signal handlers, files, filessytem info (like CWD), and memory clone():
+ 0.020350 seconds
+Benchmarking vfork clone with shared IO, parent, signal handlers, files, filessytem info (like CWD), and memory clone():
+ 0.044197 seconds

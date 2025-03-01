@@ -20,7 +20,7 @@ int main() {
     };
 
     // Use execvpe to execute the "ls" command with custom environment
-    if (execvpe("ls", argv, envp) == -1) {
+    if (execvpe("/bin/ls", argv, envp) == -1) {
         perror("execvpe failed");
         exit(EXIT_FAILURE);
     }
