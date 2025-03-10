@@ -57,10 +57,6 @@ int main() {
 	printf("Benchmarking shared files and memory clone():\n %.6f seconds\n", benchmark_clone(flags | CLONE_VM | CLONE_FILES));
 	flags = flags | CLONE_FS;
 	printf("Benchmarking shared files, filessytem info (like CWD), and memory clone():\n %.6f seconds\n", benchmark_clone(flags | CLONE_VM | CLONE_FILES | CLONE_FS));
-	flags = flags | CLONE_SIGHAND;
-	printf("Benchmarking shared signal handlers, files, filessytem info (like CWD), and memory clone():\n %.6f seconds\n", benchmark_clone(flags | CLONE_VM | CLONE_FILES | CLONE_FS | CLONE_SIGHAND));
-	flags = flags | CLONE_PARENT;
-	printf("Benchmarking shared parent, signal handlers, files, filessytem info (like CWD), and memory clone():\n %.6f seconds\n", benchmark_clone(flags));
 	flags = flags | CLONE_IO;
 	printf("Benchmarking shared IO, parent, signal handlers, files, filessytem info (like CWD), and memory clone():\n %.6f seconds\n", benchmark_clone(flags));
 	flags = flags | CLONE_VFORK;

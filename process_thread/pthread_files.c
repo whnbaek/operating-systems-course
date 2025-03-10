@@ -29,8 +29,6 @@ int main() {
         exit(1);
     }
 
-    // Parent thread writing to file
-    dprintf(fd, "Parent writing to file\n");
 
     // Wait for the child thread to finish
     pthread_join(child_thread, NULL);

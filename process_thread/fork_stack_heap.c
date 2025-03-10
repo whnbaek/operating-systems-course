@@ -16,15 +16,14 @@ int main() {
 
     pid_t pid = fork();
     if (pid == 0) { // Child process
-        int stack_var_child = 42; // Local stack variable in child
-        printf("Child: stack_var at %p, value: %d\n", (void*)&stack_var_child, stack_var_child);
+        printf("Child: stack_var at %p, value: %d\n", (void*)&stack_var, stack_var);
         printf("Child: heap_var at %p, value: %d\n", (void*)heap_var, *heap_var);
 
         *heap_var = 99; // Modify shared heap variable
-        stack_var_child = 100; // Modify local stack variable
+        stack_var = 100; // Modify local stack variable
 
         printf("Child (after modification):\n");
-        printf("Child: stack_var at %p, value: %d\n", (void*)&stack_var_child, stack_var_child);
+        printf("Child: stack_var at %p, value: %d\n", (void*)&stack_var, stack_var);
         printf("Child: heap_var at %p, value: %d\n", (void*)heap_var, *heap_var);
 
         free(heap_var);

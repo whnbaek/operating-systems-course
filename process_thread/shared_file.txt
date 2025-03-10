@@ -1,2 +1,2 @@
-Child: Writing to shared file
-Parent: Writing to shared file
+Initial value in file
+Child writing to file
