@@ -41,7 +41,7 @@ int main() {
 
     // Send HTTP GET request
     send(sock, request, strlen(request), 0);
-    printf("HTTP GET request sent to google.com\n");
+    printf("HTTP GET request sent to baidu.com\n");
 
     // Receive response
     int bytes_received;
