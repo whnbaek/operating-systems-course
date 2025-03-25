@@ -13,6 +13,10 @@ void* increment_counter(void* arg) {
     for (int i = 0; i < NUM_ITERATIONS; i++) {
         pthread_mutex_lock(&mutex);  // Lock the mutex
         counter++;                   // Critical section
+		for(int i=0; i <100; i++)
+				counter++;
+		for(int i=0; i <100; i++)
+                counter--;
         pthread_mutex_unlock(&mutex); // Unlock the mutex
     }
     return NULL;
