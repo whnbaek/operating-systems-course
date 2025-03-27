@@ -20,7 +20,7 @@ void *consumer(void *arg) {
     pthread_mutex_lock(&mutex);
     while (data_ready == 0) { // Wait while data is not ready
         printf("Consumer: Waiting for data...\n");
-        pthread_cond_wait(&cond, &mutex); // Unlocks mutex and waits
+        pthread_cond_wait(&cond, &mutex); // Unlocks mutex and waits and wakes up, reacquires lock
     }
     printf("Consumer: Consumed the data\n");
     pthread_mutex_unlock(&mutex);
