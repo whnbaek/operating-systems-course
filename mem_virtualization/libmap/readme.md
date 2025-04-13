@@ -1,7 +1,7 @@
 # libmap - Virtual Memory Mapping Library
 
 ## Overview
-The `libmap` is part of the *Operating Systems Course* repository, focusing on virtual memory management. This library provides a foundational implementation for memory mapping, enabling users to explore concepts like virtual-to-physical address translation, memory protection, and efficient memory allocation using techniques such as `mmap`.
+The `libmap` is part of the *Operating Systems Course* repository, focusing on virtual memory management. This library provides a foundational implementation for memory mapping using procfs, enabling users to explore concepts like virtual-to-physical address translation, memory protection, and efficient memory allocation using techniques such as `mmap`.
 
 The library includes:
 - Core functionalities for memory mapping.
