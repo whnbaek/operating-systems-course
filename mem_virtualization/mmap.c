@@ -33,6 +33,20 @@ int main(int argc, char *argv[]) {
 
     size_t filesize = sb.st_size;
 
+	/*
+	   void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset);
+	   addr: Suggested start address (usually NULL to let the kernel choose).
+
+	   length: Size of the mapping in bytes.
+
+	   prot: Memory protection (PROT_READ, PROT_WRITE, PROT_EXEC, PROT_NONE).
+
+	   flags: Mapping type and options (MAP_PRIVATE, MAP_SHARED, MAP_ANONYMOUS, etc.).
+
+	   fd: File descriptor (or -1 if using MAP_ANONYMOUS).
+
+	   offset: Offset in the file (must be page-aligned).
+	 */
     // Map the file into memory
     // NULL lets the kernel choose the memory address
     // PROT_READ | PROT_WRITE sets memory protection (read + write)
