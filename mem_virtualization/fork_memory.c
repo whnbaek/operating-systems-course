@@ -4,7 +4,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include "libmap/libmap.h"
-int variable =42;
+__attribute__((aligned(4096))) int variable =42;
 int main() {
 
     printf("Before fork:\n");
